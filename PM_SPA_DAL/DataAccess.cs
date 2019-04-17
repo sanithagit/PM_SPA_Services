@@ -39,9 +39,9 @@ namespace PM_SPA_DAL
         public void UpdateTask(Task editTask)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var existingTask = dbCtxt.Tasks.Where(m => m.Task_ID == editTask.Task_ID).FirstOrDefault();
+            var existingTask = dbCtxt.Tasks.Where(m => m.TaskId == editTask.TaskId).FirstOrDefault();
 
-            existingTask.Parent_ID = editTask.Parent_ID;
+            existingTask.ParentId = editTask.ParentId;
             existingTask.TaskName = editTask.TaskName;
             existingTask.ProjectStartDate = editTask.ProjectStartDate;
             existingTask.ProjectEndDate = editTask.ProjectEndDate;
@@ -54,7 +54,7 @@ namespace PM_SPA_DAL
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
           
-            var deleteTask = dbCtxt.Tasks.Where(m => m.Task_ID == id).FirstOrDefault();
+            var deleteTask = dbCtxt.Tasks.Where(m => m.TaskId == id).FirstOrDefault();
             dbCtxt.Tasks.Remove(deleteTask);
             dbCtxt.SaveChanges();
         }
@@ -82,9 +82,9 @@ namespace PM_SPA_DAL
 
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var existingProject = dbCtxt.Projects.Where(m => m.Project_ID == editProject.Project_ID).FirstOrDefault();
+            var existingProject = dbCtxt.Projects.Where(m => m.ProjectId == editProject.ProjectId).FirstOrDefault();
 
-            existingProject.Project_ID = editProject.Project_ID;
+            existingProject.ProjectId = editProject.ProjectId;
             existingProject.ProjectName = editProject.ProjectName;
             existingProject.ProjectStartDate = editProject.ProjectStartDate;
             existingProject.ProjectEndDate = editProject.ProjectEndDate;
@@ -99,7 +99,7 @@ namespace PM_SPA_DAL
         public void DeleteProject(int id)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var deleteProject = dbCtxt.Projects.Where(m => m.Project_ID == id).FirstOrDefault();
+            var deleteProject = dbCtxt.Projects.Where(m => m.ProjectId == id).FirstOrDefault();
             dbCtxt.Projects.Remove(deleteProject);
             dbCtxt.SaveChanges();
         }
@@ -126,7 +126,7 @@ namespace PM_SPA_DAL
         public void UpdateUser(User editUser)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var existingUser = dbCtxt.Users.Where(m => m.User_ID == editUser.User_ID).FirstOrDefault();
+            var existingUser = dbCtxt.Users.Where(m => m.UserId == editUser.UserId).FirstOrDefault();
                        
             existingUser.FirstName = editUser.FirstName;
             existingUser.LastName = editUser.LastName;
@@ -138,7 +138,7 @@ namespace PM_SPA_DAL
         public void DeleteUser(int id)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var deleteUser = dbCtxt.Users.Where(m => m.User_ID == id).FirstOrDefault();
+            var deleteUser = dbCtxt.Users.Where(m => m.UserId == id).FirstOrDefault();
             dbCtxt.Users.Remove(deleteUser);
             dbCtxt.SaveChanges();
         }       

@@ -14,9 +14,9 @@ namespace PM_SPA_Models
     {
         [Key]
         [JsonProperty(PropertyName = "TaskId")]
-        public int Task_ID { get; set; }
+        public int TaskId { get; set; }
         [JsonProperty(PropertyName = "ParentId")]
-        public int? Parent_ID { get; set; }
+        public int? ParentId { get; set; }
         [JsonProperty(PropertyName = "ProjectId")]
         public int Project_ID { get; set; }
         [Column("TaskName")]

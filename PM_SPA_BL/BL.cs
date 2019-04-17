@@ -19,9 +19,9 @@ namespace PM_SPA_BL
             List<Task> finalTasks = new List<Task>();
             foreach (Task task in allTasks)
             {
-                if (task.Parent_ID != null)
+                if (task.ParentId != null)
                 {
-                    task.Parent = parentTasks.Where(m => m.ParentTaskId == task.Parent_ID).FirstOrDefault();
+                    task.Parent = parentTasks.Where(m => m.ParentTaskId == task.ParentId).FirstOrDefault();
                 }
                 finalTasks.Add(task);
             }
@@ -63,8 +63,8 @@ namespace PM_SPA_BL
             List<Project> finalProjects = new List<Project>();
             foreach (Project project in allProjects)
             {
-                project.projectTotalTasks = allTasks.Where(m => m.Project_ID == project.Project_ID).Count();
-                project.projectTasksCompleted = objDal.GetCompletedTasksByProjectId(project.Project_ID).Count();
+                project.projectTotalTasks = allTasks.Where(m => m.Project_ID == project.ProjectId).Count();
+                project.projectTasksCompleted = objDal.GetCompletedTasksByProjectId(project.ProjectId).Count();
                 finalProjects.Add(project);
             }
             return finalProjects;

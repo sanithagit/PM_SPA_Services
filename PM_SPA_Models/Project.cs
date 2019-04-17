@@ -15,7 +15,7 @@ namespace PM_SPA_Models
 
         [Key]
         [JsonProperty("ProjectId")]
-        public int Project_ID { get; set; }
+        public int ProjectId { get; set; }
         [Required]
         [JsonProperty("ProjectName")]
         [MaxLength(100)]

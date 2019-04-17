@@ -14,7 +14,7 @@ namespace PM_SPA_Models
     {
         [Key]
         [JsonProperty("UserId")]
-        public int User_ID { get; set; }
+        public int UserId { get; set; }
         [Required]
         [MaxLength(100)]
         [JsonProperty("FirstName")]
