@@ -55,6 +55,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PM_SPA_BL\PM_SPA_BL.csproj">
+      <Project>{6add0a1c-6461-450b-8950-b755aa27dc91}</Project>
+      <Name>PM_SPA_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PM_SPA_Models\PM_SPA_Models.csproj">
+      <Project>{14347d36-d464-454c-a893-4def36b47fcf}</Project>
+      <Name>PM_SPA_Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

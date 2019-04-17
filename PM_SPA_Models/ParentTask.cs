@@ -12,7 +12,7 @@ namespace PM_SPA_Models
 {
     [Table("ParentTask")]
     public class ParentTask
-    {
+    {      
         [Key]
         [JsonProperty(PropertyName = "ParentTaskId")]
         public int ParentTaskId { get; set; }

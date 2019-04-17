@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PM_SPA_Models
 {
+    [Table("Task")]
     public class Task
     {
         [Key]
