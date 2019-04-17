@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace PM_SPA_Services
+namespace PM_SPA_Service
 {
     public static class WebApiConfig
     {
@@ -21,7 +21,7 @@ namespace PM_SPA_Services
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+                 );
         }
     }
 }
