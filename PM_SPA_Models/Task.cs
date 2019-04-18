@@ -38,7 +38,7 @@ namespace PM_SPA_Models
         [JsonProperty(PropertyName = "Priority")]
         public int Priority { get; set; }
         [JsonProperty(PropertyName = "Parent")]
-        [ForeignKey("ParentTaskId")]
+        [ForeignKey("ParentId")]
         public ParentTask Parent { get; set; }
         public Project Project { get; set; }
     }

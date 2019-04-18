@@ -14,11 +14,11 @@ namespace PM_SPA_Models
     public class ParentTask
     {      
         [Key]
-        [JsonProperty(PropertyName = "ParentTaskId")]
-        public int ParentTaskId { get; set; }
+        [JsonProperty(PropertyName = "TaskId")]
+        public int ParentId { get; set; }
         [Required]
         [MaxLength(100)]
-        [JsonProperty(PropertyName = "Parent_Task")]
+        [JsonProperty(PropertyName = "TaskName")]
         public string Parent_Task { get; set; }
         public ICollection<Task> Tasks { get; set; }
     }

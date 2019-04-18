@@ -21,7 +21,7 @@ namespace PM_SPA_BL
             {
                 if (task.ParentId != null)
                 {
-                    task.Parent = parentTasks.Where(m => m.ParentTaskId == task.ParentId).FirstOrDefault();
+                    task.Parent = parentTasks.Where(m => m.ParentId == task.ParentId).FirstOrDefault();
                 }
                 finalTasks.Add(task);
             }
