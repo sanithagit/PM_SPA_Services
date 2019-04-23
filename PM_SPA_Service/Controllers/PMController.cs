@@ -51,6 +51,22 @@ namespace PM_SPA_Services.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        [Route("api/PM/AddParentTask")]
+        //Add task
+        [ResponseType(typeof(void))]
+        public IHttpActionResult AddParentTask([FromBody]ParentTask newTask)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            ObjBl = new BL();
+            ObjBl.AddParentTask(newTask);
+            return Ok();
+        }
+
+
         [HttpPut]
         [Route("api/PM/UpdateTask")]
         //MUpdate Task
@@ -77,6 +93,18 @@ namespace PM_SPA_Services.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        //Complete task
+        [Route("api/PM/EndTask/{Id}")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult EndTask(int Id)
+        {
+            ObjBl = new BL();
+            ObjBl.EndTask(Id);
+            return Ok();
+        }
+
+
         [HttpGet]
         //get all users
         [Route("api/PM/GetAllUsers")]
@@ -92,12 +120,13 @@ namespace PM_SPA_Services.Controllers
         [Route("api/PM/AddUser")]
         //Add user
         [ResponseType(typeof(void))]
-        public IHttpActionResult AddUser([FromBody]User newUser)
+        public IHttpActionResult AddUser(User newUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
+
             ObjBl = new BL();
             ObjBl.AddUser(newUser);
             return Ok();

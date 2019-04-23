@@ -41,6 +41,13 @@ namespace PM_SPA_BL
             objDal.AddTask(newTask);
         }
 
+        //Add New Parent Task
+        public void AddParentTask(ParentTask newTask)
+        {
+            objDal = new DataAccess();
+            objDal.AddParentTask(newTask);
+        }
+
         //Update Existing Task Method
         public void UpdateTask(Task editTask)
         {
@@ -52,7 +59,14 @@ namespace PM_SPA_BL
         {
             objDal = new DataAccess();
             objDal.DeleteTask(id);
-        }      
+        }
+        //End  Task Method
+        public void EndTask(int id)
+        {
+            objDal = new DataAccess();
+            objDal.EndTask(id);
+        }
+
         //Get List of all projects
         public List<Project> GetAllProjects()
         {

@@ -24,7 +24,7 @@ namespace PM_SPA_Models
         [JsonProperty(PropertyName = "TaskName")]
         public string TaskName { get; set; }      
         
-        [JsonProperty(PropertyName = "TaskUserId")]
+        [JsonProperty(PropertyName = "UserId")]
         public int User_ID { get; set; }
         [NotMapped]
         [JsonProperty(PropertyName = "isParentTask")]
@@ -37,6 +37,10 @@ namespace PM_SPA_Models
         public DateTime? ProjectEndDate { get; set; }
         [JsonProperty(PropertyName = "Priority")]
         public int Priority { get; set; }
+
+        [JsonProperty(PropertyName = "Status")]
+        public Boolean Status { get; set; }
+
         [JsonProperty(PropertyName = "Parent")]
         [ForeignKey("ParentId")]
         public ParentTask Parent { get; set; }

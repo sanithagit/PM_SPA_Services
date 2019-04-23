@@ -25,6 +25,6 @@ namespace PM_SPA_Models
         public string LastName { get; set; }
         [Required]
         [JsonProperty("EmployeeId")]
-        public int Employee_ID { get; set; }       
+        public int EmployeeId { get; set; }       
     }
 }

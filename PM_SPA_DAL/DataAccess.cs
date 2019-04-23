@@ -31,10 +31,23 @@ namespace PM_SPA_DAL
         // Add new Task
         public void AddTask(Task newTask)
         {
-            ProjectManagerContext dbCtxt = new ProjectManagerContext();
+            ProjectManagerContext dbCtxt = new ProjectManagerContext();  
+           
             dbCtxt.Tasks.Add(newTask);
-            dbCtxt.SaveChanges();          
+            dbCtxt.SaveChanges();
+       
         }
+
+        // Add new Task
+        public void AddParentTask(ParentTask newTask)
+        {
+            ProjectManagerContext dbCtxt = new ProjectManagerContext();
+
+            dbCtxt.ParentTasks.Add(newTask);
+            dbCtxt.SaveChanges();
+
+        }
+
         // Update Task
         public void UpdateTask(Task editTask)
         {
@@ -59,9 +72,19 @@ namespace PM_SPA_DAL
             dbCtxt.SaveChanges();
         }
 
+        // end Task
+        public void EndTask(int id)
+        {
+            ProjectManagerContext dbCtxt = new ProjectManagerContext();
+
+            var endTask = dbCtxt.Tasks.Where(m => m.TaskId == id).FirstOrDefault();
+            endTask.Status = false;            
+            dbCtxt.SaveChanges();
+        }
+
 
         //Get all projects
-       
+
         public List<Project> GetAllProjects()
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
@@ -110,7 +133,7 @@ namespace PM_SPA_DAL
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
             List<User> UserList = new List<User>();
             UserList = dbCtxt.Users.ToList();
-            UserList = UserList.GroupBy(i => i.Employee_ID).Select(g => g.First()).ToList();
+            UserList = UserList.ToList();
             return UserList;
         }
 
@@ -130,7 +153,7 @@ namespace PM_SPA_DAL
                        
             existingUser.FirstName = editUser.FirstName;
             existingUser.LastName = editUser.LastName;
-            existingUser.Employee_ID = editUser.Employee_ID;
+            existingUser.EmployeeId = editUser.EmployeeId;
 
             dbCtxt.SaveChanges();
         }
