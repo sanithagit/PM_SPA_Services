@@ -1,19 +1,27 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PM_SPA_BL;
+using NUnit.Framework;
 
 namespace PM_SPA_Test
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
         BL ObjBl = new BL();
-        [TestMethod()]       
+       [Test]    
         public void GetAllTasksTest()
         {
             int result = ObjBl.GetAllTasks().Count;
             Assert.IsTrue(result > 0);
         }
+
+        [Test]
+        public void GetAllTasks()
+        {
+            int result = ObjBl.GetAllTasks().Count;
+            Assert.IsTrue(result > 0);
+        }
+
 
     }
 }
