@@ -25,7 +25,7 @@ namespace PM_SPA_DAL
         public List<Task> GetCompletedTasksByProjectId(int projectId)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var tasks = dbCtxt.Tasks.Where(m => m.Project_ID == projectId && m.ProjectEndDate > DateTime.Now);
+            var tasks = dbCtxt.Tasks.Where(m => m.Project_ID == projectId && m.ProjectEndDate < DateTime.Now);
             return tasks.ToList();
         }
         // Add new Task
@@ -68,8 +68,11 @@ namespace PM_SPA_DAL
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
           
             var deleteTask = dbCtxt.Tasks.Where(m => m.TaskId == id).FirstOrDefault();
-            dbCtxt.Tasks.Remove(deleteTask);
-            dbCtxt.SaveChanges();
+            if (deleteTask != null)
+            {
+                dbCtxt.Tasks.Remove(deleteTask);
+                dbCtxt.SaveChanges();
+            }
         }
 
         // end Task
@@ -78,8 +81,11 @@ namespace PM_SPA_DAL
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
 
             var endTask = dbCtxt.Tasks.Where(m => m.TaskId == id).FirstOrDefault();
-            endTask.Status = false;            
-            dbCtxt.SaveChanges();
+            if (endTask != null)
+            {
+                endTask.Status = false;
+                dbCtxt.SaveChanges();
+            }
         }
 
 
@@ -123,8 +129,11 @@ namespace PM_SPA_DAL
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
             var deleteProject = dbCtxt.Projects.Where(m => m.ProjectId == id).FirstOrDefault();
-            dbCtxt.Projects.Remove(deleteProject);
-            dbCtxt.SaveChanges();
+            if (deleteProject != null)
+            {
+                dbCtxt.Projects.Remove(deleteProject);
+                dbCtxt.SaveChanges();
+            }
         }
        
         // Get All Users
@@ -162,8 +171,11 @@ namespace PM_SPA_DAL
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
             var deleteUser = dbCtxt.Users.Where(m => m.UserId == id).FirstOrDefault();
-            dbCtxt.Users.Remove(deleteUser);
-            dbCtxt.SaveChanges();
+            if (deleteUser != null)
+            {
+                dbCtxt.Users.Remove(deleteUser);
+                dbCtxt.SaveChanges();
+            }
         }       
     }
 }
