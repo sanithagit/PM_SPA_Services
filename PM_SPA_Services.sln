@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM_SPA_Test", "PM_SPA_Test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM_SPA_Service", "PM_SPA_Service\PM_SPA_Service.csproj", "{726A5009-6847-44E0-B8BD-9F9420F419F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBenchTest", "NBenchTest\NBenchTest.csproj", "{C666F79A-74EC-4E59-B799-E961ABF07C5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{726A5009-6847-44E0-B8BD-9F9420F419F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{726A5009-6847-44E0-B8BD-9F9420F419F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{726A5009-6847-44E0-B8BD-9F9420F419F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C666F79A-74EC-4E59-B799-E961ABF07C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C666F79A-74EC-4E59-B799-E961ABF07C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C666F79A-74EC-4E59-B799-E961ABF07C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C666F79A-74EC-4E59-B799-E961ABF07C5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

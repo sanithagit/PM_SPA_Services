@@ -174,12 +174,16 @@ namespace PM_SPA_Test
             User obj2 = result2.Find(x => x.FirstName == "Nivi");
             userIdDummy = obj2.UserId;
 
+            List<Project> result3 = ObjBl.GetAllProjects();
+            Project obj3 = result3.Find(x => x.ProjectName == "Project New");
+            projectIdDummy = obj3.ProjectId;
+
             Task obj = new Task();
             obj.TaskId = 0;
             obj.TaskName= "Task New";
             obj.Project_ID = projectIdDummy;
-            obj.ProjectStartDate = DateTime.Now;
-            obj.ProjectEndDate = DateTime.Now;
+            obj.TaskStartDate = DateTime.Now;
+            obj.TaskEndDate = DateTime.Now;
             obj.Priority = 3;
             obj.User_ID = userIdDummy;
 
@@ -225,8 +229,8 @@ namespace PM_SPA_Test
             Task obj = new Task();
             obj.TaskName = "Task New updated";
             obj.IsParent = true;
-            obj.ProjectStartDate = DateTime.Now;
-            obj.ProjectEndDate = DateTime.Now;
+            obj.TaskStartDate = DateTime.Now;
+            obj.TaskEndDate = DateTime.Now;
             obj.Status = true;
             obj.TaskId = taskIdDummy;
             obj.User_ID = userIdDummy;
@@ -248,6 +252,9 @@ namespace PM_SPA_Test
         {
             try
             {
+                List<Task> result3 = ObjBl.GetAllTasks();
+                Task obj3 = result3.Find(x => x.TaskName == "Task New");
+                taskIdDummy = obj3.TaskId;
                 ObjBl.EndTask(taskIdDummy);
                 Assert.IsTrue(1 == 1);
             }
@@ -263,6 +270,10 @@ namespace PM_SPA_Test
         {          
             try
             {
+                List<Task> result3 = ObjBl.GetAllTasks();
+                Task obj3 = result3.Find(x => x.TaskName == "Task New");
+                taskIdDummy = obj3.TaskId;
+                
                 ObjBl.DeleteTask(taskIdDummy);
                 Assert.IsTrue(1 == 1);
             }

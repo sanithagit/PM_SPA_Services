@@ -31,10 +31,10 @@ namespace PM_SPA_Models
         public bool IsParent { get; set; }
         [Column(TypeName = "Date")]
         [JsonProperty(PropertyName = "ProjectStartDate")]
-        public DateTime? ProjectStartDate { get; set; }
+        public DateTime? TaskStartDate { get; set; }
         [Column(TypeName = "Date")]
         [JsonProperty(PropertyName = "ProjectEndDate")]
-        public DateTime? ProjectEndDate { get; set; }
+        public DateTime? TaskEndDate { get; set; }
         [JsonProperty(PropertyName = "Priority")]
         public int Priority { get; set; }
 

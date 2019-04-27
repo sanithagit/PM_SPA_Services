@@ -25,7 +25,7 @@ namespace PM_SPA_DAL
         public List<Task> GetCompletedTasksByProjectId(int projectId)
         {
             ProjectManagerContext dbCtxt = new ProjectManagerContext();
-            var tasks = dbCtxt.Tasks.Where(m => m.Project_ID == projectId && m.ProjectEndDate < DateTime.Now);
+            var tasks = dbCtxt.Tasks.Where(m => m.Project_ID == projectId && m.TaskEndDate < DateTime.Now);
             return tasks.ToList();
         }
         // Add new Task
@@ -56,8 +56,8 @@ namespace PM_SPA_DAL
 
             existingTask.ParentId = editTask.ParentId;
             existingTask.TaskName = editTask.TaskName;
-            existingTask.ProjectStartDate = editTask.ProjectStartDate;
-            existingTask.ProjectEndDate = editTask.ProjectEndDate;
+            existingTask.TaskStartDate = editTask.TaskStartDate;
+            existingTask.TaskEndDate = editTask.TaskEndDate;
             existingTask.Priority = editTask.Priority;
             existingTask.User_ID = editTask.User_ID;
             dbCtxt.SaveChanges();
