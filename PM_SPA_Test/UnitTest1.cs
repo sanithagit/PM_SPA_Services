@@ -76,7 +76,7 @@ namespace PM_SPA_Test
         public void AddProject()
         {
             List<User> result = ObjBl.GetAllUsers();
-            User obj1 = result.Find(x => x.FirstName == "Nivi");
+            User obj1 = result.Find(x => x.FirstName == "Nivy Updated");
             userIdDummy = obj1.UserId;
 
             Project obj = new Project();
@@ -171,16 +171,18 @@ namespace PM_SPA_Test
 
 
             List<User> result2 = ObjBl.GetAllUsers();
-            User obj2 = result2.Find(x => x.FirstName == "Nivi");
+            User obj2 = result2.Find(x => x.FirstName == "Nivy Updated");
             userIdDummy = obj2.UserId;
 
             List<Project> result3 = ObjBl.GetAllProjects();
-            Project obj3 = result3.Find(x => x.ProjectName == "Project New");
+            Project obj3 = result3.Find(x => x.ProjectName == "Project updated");
             projectIdDummy = obj3.ProjectId;
 
             Task obj = new Task();
             obj.TaskId = 0;
             obj.TaskName= "Task New";
+            obj.ParentId = parentTaskIdDummy;
+            obj.IsParent = false;
             obj.Project_ID = projectIdDummy;
             obj.TaskStartDate = DateTime.Now;
             obj.TaskEndDate = DateTime.Now;
@@ -218,12 +220,16 @@ namespace PM_SPA_Test
 
 
             List<User> result2 = ObjBl.GetAllUsers();
-            User obj2 = result2.Find(x => x.FirstName == "Nivi");
+            User obj2 = result2.Find(x => x.FirstName == "Nivy Updated");
             userIdDummy = obj2.UserId;
 
             List<Task> result3 = ObjBl.GetAllTasks();
             Task obj3 = result3.Find(x => x.TaskName == "Task New");
             taskIdDummy = obj3.TaskId;
+
+            List<Project> result4 = ObjBl.GetAllProjects();
+            Project obj4 = result4.Find(x => x.ProjectName == "Project updated");
+            projectIdDummy = obj4.ProjectId;
 
 
             Task obj = new Task();
@@ -232,6 +238,7 @@ namespace PM_SPA_Test
             obj.TaskStartDate = DateTime.Now;
             obj.TaskEndDate = DateTime.Now;
             obj.Status = true;
+            obj.ParentId = parentTaskIdDummy;
             obj.TaskId = taskIdDummy;
             obj.User_ID = userIdDummy;
             obj.Project_ID = projectIdDummy;
@@ -253,7 +260,7 @@ namespace PM_SPA_Test
             try
             {
                 List<Task> result3 = ObjBl.GetAllTasks();
-                Task obj3 = result3.Find(x => x.TaskName == "Task New");
+                Task obj3 = result3.Find(x => x.TaskName == "Task New updated");
                 taskIdDummy = obj3.TaskId;
                 ObjBl.EndTask(taskIdDummy);
                 Assert.IsTrue(1 == 1);
@@ -271,7 +278,7 @@ namespace PM_SPA_Test
             try
             {
                 List<Task> result3 = ObjBl.GetAllTasks();
-                Task obj3 = result3.Find(x => x.TaskName == "Task New");
+                Task obj3 = result3.Find(x => x.TaskName == "Task New updated");
                 taskIdDummy = obj3.TaskId;
                 
                 ObjBl.DeleteTask(taskIdDummy);
@@ -292,6 +299,10 @@ namespace PM_SPA_Test
         {
             try
             {
+                List<Project> result4 = ObjBl.GetAllProjects();
+                Project obj4 = result4.Find(x => x.ProjectName == "Project updated");
+                projectIdDummy = obj4.ProjectId;
+
                 ObjBl.DeleteTask(projectIdDummy);
                 Assert.IsTrue(1 == 1);
             }
@@ -307,6 +318,10 @@ namespace PM_SPA_Test
         {
             try
             {
+                List<User> result2 = ObjBl.GetAllUsers();
+                User obj2 = result2.Find(x => x.FirstName == "Nivy Updated");
+                userIdDummy = obj2.UserId;
+
                 ObjBl.DeleteUser(userIdDummy);
                 Assert.IsTrue(1 == 1);
             }
